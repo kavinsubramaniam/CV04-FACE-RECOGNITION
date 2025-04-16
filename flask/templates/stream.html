@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live Video Streaming</title>
+</head>
+<body>
+    <h2>Streaming Camera Feed to Flask Server</h2>
+    <video id="video" autoplay playsinline></video>
+    <script>
+        const video = document.getElementById("video");
+    
+        navigator.mediaDevices.getUserMedia({ video: true })
+            .then(stream => {
+                video.srcObject = stream;
+                const mediaRecorder = new MediaRecorder(stream, { mimeType: "video/webm" });
+    
+                mediaRecorder.ondataavailable = async (event) => {
+                    if (event.data.size > 0) {
+                        await sendFrame(event.data);
+                    }
+                };
+    
+                mediaRecorder.start(100); // Capture frames every 100ms
+            })
+            .catch(err => console.error("Error accessing webcam:", err));
+    
+        async function sendFrame(frame) {
+            const formData = new FormData();
+            formData.append("frame", frame, "frame.jpg");  // Adding filename for debugging
+    
+            try {
+                const response = await fetch("http://127.0.0.1:5000/stream", {
+                    method: "POST",
+                    body: formData
+                });
+    
+                if (!response.ok) {
+                    console.error("Error sending frame:", await response.text());
+                }
+            } catch (error) {
+                console.error("Fetch error:", error);
+            }
+        }
+    </script>
+</body>
+</html>

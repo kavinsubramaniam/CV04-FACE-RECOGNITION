@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fullscreen Image</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        html, body {
+            width: 100%;
+            height: 100%;
+        }
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    </style>
+</head>
+<body>
+    <img src="page.png" alt="Fullscreen Image">
+    <video id="webcam" autoplay playsinline style="position: absolute; top: 355px; left: 760px; transform: translate(-50%, -50%); width: 483px; height: 1000px;"></video>
+    <script>
+        const video = document.getElementById('webcam');
+
+        if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(stream => {
+                    video.srcObject = stream;
+                })
+                .catch(err => {
+                    console.error("Error accessing webcam: ", err);
+                });
+        } else {
+            console.error("Webcam not supported in this browser.");
+        }
+    </script>
+</body>
+</html>
