@@ -6,7 +6,7 @@ A real-time attendance management system that uses **Face Recognition** for mark
 
 ---
 
-## 📌 Features
+## Features
 - **Face Capture via Flask UI** – Users can capture their face using a web interface.
 - **Face Detection** – Implemented using **YOLOv11-FACE**, optimized with **ONNX** for faster inference.
 - **Feature Extraction** – Utilizes **VGG-FACE (4096-D)** embeddings from **DEEPFACE** for accurate face representation.
@@ -15,7 +15,7 @@ A real-time attendance management system that uses **Face Recognition** for mark
 
 ---
 
-## 🛠 Tech Stack
+## Tech Stack
 - **Frontend & Backend:** Flask (Python)
 - **Face Detection:** YOLOv11-FACE (ONNX optimized)
 - **Feature Extraction:** VGG-FACE (4096-dimensional embeddings) - **DEEPFACE**
@@ -24,7 +24,7 @@ A real-time attendance management system that uses **Face Recognition** for mark
 
 ---
 
-## ⚙️ System Workflow
+## System Workflow
 1. **Capture Face** – The user’s face is captured via a webcam using a **Flask-based UI**.
 2. **Face Detection** – YOLOv11-FACE detects the face in real-time. The YOLO model is converted to **ONNX format** for optimized inference.
 3. **Feature Extraction** – Extract features using **VGG-FACE** model, resulting in a 4096-dimension embedding.
@@ -33,7 +33,7 @@ A real-time attendance management system that uses **Face Recognition** for mark
 
 ---
 
-## 🔍 How It Works
+## How It Works
 ### **Enrollment:**
 Capture user face → Detect → Extract features → Store in FAISS index.
 
@@ -42,7 +42,7 @@ Capture new face → Detect → Extract features → Compare with FAISS DB → M
 
 ---
 
-## 📦 Dependencies
+## Dependencies
 - Flask
 - OpenCV
 - ONNX Runtime
@@ -52,7 +52,7 @@ Capture new face → Detect → Extract features → Compare with FAISS DB → M
 
 ---
 
-## 📈 Performance
+## Performance
 - **Face Detection:** YOLOv11-FACE (ONNX optimized)
 - **Feature Extraction:** VGG-FACE embeddings (4096-D)
 - **Similarity Search:** FAISS index for real-time matching
@@ -60,7 +60,7 @@ Capture new face → Detect → Extract features → Compare with FAISS DB → M
 
 ---
 
-## 🎯 Future Enhancements
+## Future Enhancements
 - Implement **liveness detection** to prevent spoofing.
 - Add **user management dashboard** for admin.
 
