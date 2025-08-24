@@ -9,7 +9,7 @@ A real-time attendance management system that uses **Face Recognition** for mark
 ## 📌 Features
 - **Face Capture via Flask UI** – Users can capture their face using a web interface.
 - **Face Detection** – Implemented using **YOLOv11-FACE**, optimized with **ONNX** for faster inference.
-- **Feature Extraction** – Utilizes **VGG-FACE (4096-D)** embeddings for accurate face representation.
+- **Feature Extraction** – Utilizes **VGG-FACE (4096-D)** embeddings from **DEEPFACE** for accurate face representation.
 - **Vector Database for Similarity Search** – Stores embeddings in **FAISS** for efficient nearest neighbor search.
 - **Real-Time Attendance Marking** – Sub-second recognition latency for quick attendance updates.
 
@@ -18,7 +18,7 @@ A real-time attendance management system that uses **Face Recognition** for mark
 ## 🛠 Tech Stack
 - **Frontend & Backend:** Flask (Python)
 - **Face Detection:** YOLOv11-FACE (ONNX optimized)
-- **Feature Extraction:** VGG-FACE (4096-dimensional embeddings)
+- **Feature Extraction:** VGG-FACE (4096-dimensional embeddings) - **DEEPFACE**
 - **Database:** FAISS (for vector similarity search)
 - **Other Tools:** OpenCV, NumPy, ONNX Runtime
 
@@ -47,8 +47,8 @@ Capture new face → Detect → Extract features → Compare with FAISS DB → M
 - OpenCV
 - ONNX Runtime
 - FAISS
-- TensorFlow / Keras (for VGG-FACE)
 - NumPy
+- DeepFace
 
 ---
 
